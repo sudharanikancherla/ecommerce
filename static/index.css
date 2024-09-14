@@ -1,0 +1,72 @@
+.one{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image:url('https://www.zuplic.com/wp-content/uploads/2018/07/eCommerce-Animated-GIF.gif');
+    margin:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:75vh;
+ }
+   h1{
+       -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+       margin-left: 1%; 
+       text-shadow: 1px 2px blue;
+       animation-name: h;
+       animation-duration: 5s;
+       animation-iteration-count: 5;
+   } 
+   @keyframes h{
+    25%{
+     text-shadow: 1px 2px  green;
+    }
+    50%{
+      text-shadow: 1px 2px  black;
+    }
+    100%{
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+      text-shadow: 1px 2px red;
+    }
+  }
+
+
+.navbar{
+    
+    margin: 0 auto;
+    background:linear-gradient(rgb(111, 159, 214),rgb(86, 154, 163));
+    padding: 10px;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+.nav-link{
+    font-weight: bold;
+}
+.card1{
+    display:flex;
+    flex-direction: row;
+    margin-top: 3%;
+    margin-left:2%;
+
+    width:20%;
+    
+} 
+.fa-solid{
+    margin-top: 5%; 
+    width:10%;
+}
+.btn{
+    
+
+    margin-right: 10%;
+}
+/* footer */
+.foot{
+    margin-top:2%;
+    text-align: center;
+    background-color:gray;
+    font-size: 15px;
+    font-weight: normal;
+    color:white;
+
+}

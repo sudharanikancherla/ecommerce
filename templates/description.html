@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{
+            
+             background: url('https://img.freepik.com/premium-photo/single-shopping-cart-pink-blue-gradient-background-with-two-orange-boxes-inside_1174990-36139.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+             text-shadow: 1px 1px 5px rgb(167, 146, 146);  
+        
+            
+            
+        }
+        span{
+             /* color:linear-gradient(white,blue); */
+            font-size: 23px;
+        }
+        
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center style="color: white;">{{ message }}</center>
+    {% endfor %}
+  {% endif %}
+{% endwith %} 
+<body>
+    
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center flex-row" style="margin-top: 7%;">
+            <div class="col-12 col-md-6">
+                <img src="/static/{{item_data[5]}}" alt="..." width="80%" height="500px" style="border-radius: 10px;">
+            </div>
+            <div class="col-12 col-md-6">
+                <h1 class="name"><span style="text-decoration: underline;">Name: {{item_data[1]}} </span></h1><br>
+                <h4 class="item_id"><span style="text-decoration: underline;">Item_id: {{item_data[0]}} </span></h4><br>
+                <h4 class="desc"><span style="text-decoration: underline;">Description: {{item_data[2]}} </span></h4><br>
+                <h4 class="cat"><span style="text-decoration: underline;">Category: {{item_data[4]}}</span></h4><br>
+                <h4 class="price"> <span style="text-decoration: underline;">Price: {{item_data[3]}} </span></h4><br>
+                <h4 class="quantity"> <span style="text-decoration: underline;">Avaliable stock : {{item_data[3]}} </span> </h4><br>
+                <div class="button">
+                    {% if session.get('useremail') %}
+                    <a href="{{url_for('addreview',itemid=item_data[0])}}">
+                        <button class="btn-btn-success">Add_Review</button></a>
+                    {% endif %}
+                    <a href="#">
+                        <button class="btn-btn-success">Add cart</button></a>
+                        <a href="{{url_for('readreview',itemid=item_data[0])}}">
+                            <button class="btn-btn-success">Read_Review</button></a>
+                  
+                        <a href="{{url_for('index')}}">
+                            <button class="btn-btn-success">Back</button></a>
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userotp</title>
+    <style>
+        body{
+           background: url('https://cdn.dribbble.com/users/1817357/screenshots/5799171/texting.gif');
+           background-repeat:no-repeat ;
+           background-size: 100% 100vh;
+        }
+    input{
+        
+            font-weight: light;
+            font-size: 15px;
+         }
+        .btn{
+            margin-top:0.5%;
+            background-color:rgb(50, 13, 218);
+            width:10%;
+            padding:0.5%;
+            border-radius:10px;
+            color:white;
+            border:none;
+
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages()%}
+{% if messages%}
+    {% for message in messages%}
+   <center style="color:red"> <p>{{message}}</p></center>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
+ 
+<body>
+    
+    <center>
+        <form method="POST">
+        <h1>User OTP</h1>
+        <label>Enter Your OTP:</label></br></br>
+        <input type="text" name="otp"/></br></br>
+        <button class="btn" type="submit">SUBMIT</button>
+    </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>usersignup</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <style>
+    body {
+       /* background-image:url('https://img.freepik.com/free-photo/view-3d-businessmen-handshaking_23-2150709806.jpg?t=st=1724923424~exp=1724927024~hmac=67aab7f5867e690a3f6be7a802f5f3121c59a735383edc86bf0c1a60f9992e1c&w=740');  */
+      background-image: url('https://clevertap.com/wp-content/uploads/2021/04/UO.gif'); 
+      background-repeat: no-repeat;
+      background-size:100% 100vh;
+
+      glass:prism o.5%;
+
+    }
+    form {
+      margin-left: 9%;
+      width: 24%;
+      margin-top: 2%;
+      font-weight: light;
+      font-size: 15px;
+      padding: 2%;
+      background: linear-gradient(rgb(112, 161, 216), rgb(150, 62, 131));
+      border: 1px solid blueviolet;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(173, 6, 173, 0.2);
+    }
+    label{
+      color:white;
+    }
+
+    input {
+      width: 90%;
+      border:none;
+      padding: 5px;
+      margin: 0.5%;
+      border-radius: 10px;
+      background-color: white;
+
+
+    }
+
+    .btn {
+      width: 30%;
+      border:1px solid white;
+      background:transparent;
+      color: #fff;
+      font-weight: bold;
+      margin-top: 1%;
+    }
+    .btn:hover{
+      background-color: white;
+      color:black;
+    }
+
+    #pass {
+      width: 90%;
+    }
+
+    select {
+      width: 51%;
+      padding: 1%;
+    }
+  </style>
+</head>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <center>  <li style="color:red;">{{ message }}</center></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}   
+
+
+<body>
+  <div class="bord">
+    <form method="POST" action="{{url_for('usersignup')}}">
+      <h5 style="text-align: center;color:white;">User SignUp</h5>
+      <div class="mb-1">
+        <label for="exampleInputEmail1" class="form-label">User Name:</label></br>
+        <input type="text" name="username" id="name" required />
+      </div>
+      <div class="mb-1">
+        <label> User Email:</label></br>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div class="mb-1">
+        <label>Address:</label></br>
+        <input type="text" name="address" id="address" required />
+        <div class="mb-1">
+          <label>Password:</label></br>
+          <input type="password" name="password" id="password" required />
+        </div>
+        <div class="mb-1">
+          <label>Country:</label></br>
+          <input type="text" name="country" id="country" required />
+        </div>
+        <div class="mb-1">
+          <label for="gender">Gender:</label><br><br>
+
+          <div style="display: flex;justify-content: space-evenly;">
+            <div style="display: flex;margin-top: -5%;">
+              <input type="radio" id="male" name="gender" value="male">
+              <label for="male">Male</label><br>
+            </div>
+
+            <div style="display: flex;margin-top: -5%;">
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">Female</label><br>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn" value="Create Admin">Submit</button>
+          <p style="color:white">Already have an acount?&nbsp;&nbsp;<a style="color:#fff;" href="{{url_for('userlogin')}}">
+              <span>Login</span></a></p>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
