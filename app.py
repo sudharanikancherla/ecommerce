@@ -619,4 +619,5 @@ def view_contact():
     data=cursor.fetchall()
     cursor.close()
     return render_template('view_contact.html',data=data)
-app.run(debug=True,use_reloader=True)
+if __name__=='__main__':
+    app.run()
