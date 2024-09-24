@@ -21,7 +21,7 @@ db=os.environ.get('RDS_DB_NAME')
 password=os.environ.get('RDS_PASSWORD')
 host=os.environ.get('RDS_HOSTNAME')
 port=os.environ.get('RDS_PORT')
-with mysql.connector.connent(host=host,password=password,db=db,user=user,port=port) as conn:
+with mysql.connector.connect(host=host,password=password,db=db,user=user,port=port) as conn:
     cursor=conn.cursor()
     cursor.execute("CREATE TABLE  if not exists admincreate(email varchar(50) NOT NULL,username varchar(100) NOT NULL,password varbinary(10) NOT NULL,address text NOT NULL,accept enum('on','off') DEFAULT NULL,dp_image varchar(50) DEFAULT NULL,ph_no bigint DEFAULT NULL,PRIMARY KEY (email),UNIQUE KEY ph_no (ph_no))")
     cursor.execute("CREATE TABLE  if not exists user (user_name varchar(100) NOT NULL,email varchar(100) NOT NULL,address text NOT NULL,password varbinary(10) NOT NULL,gender enum('Male','Female') DEFAULT NULL,country varchar(20) DEFAULT NULL,PRIMARY KEY (email))")
